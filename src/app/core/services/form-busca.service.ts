@@ -61,6 +61,16 @@ export class FormBuscaService {
     }
   }
 
+  trocarOrigemDestion(): void {
+    const origem = this.formBusca.get('origem')?.value;
+    const destino = this.formBusca.get('destino')?.value;
+
+    this.formBusca.patchValue({
+      origem: destino,
+      destino: origem
+    })
+  }
+
   openDialog() {
     this.dialog.open(ModalComponent, {
       width: '50%'
