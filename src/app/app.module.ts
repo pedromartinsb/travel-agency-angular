@@ -41,8 +41,9 @@ import { FormBaseComponent } from "./shared/form-base/form-base.component";
 import { CadastroComponent } from "./pages/cadastro/cadastro.component";
 import { PerfilComponent } from "./pages/perfil/perfil.component";
 import { AutenticacaoInterceptor } from "./core/interceptors/autenticacao.interceptor";
-import { BuscaComponent } from './pages/busca/busca.component';
-import { PassagemComponent } from './shared/passagem/passagem.component';
+import { BuscaComponent } from "./pages/busca/busca.component";
+import { PassagemComponent } from "./shared/passagem/passagem.component";
+import { DepoimentosComponent } from "./pages/home/depoimentos/depoimentos.component";
 
 @NgModule({
   declarations: [
@@ -67,6 +68,7 @@ import { PassagemComponent } from './shared/passagem/passagem.component';
     PerfilComponent,
     BuscaComponent,
     PassagemComponent,
+    DepoimentosComponent,
   ],
   imports: [
     BrowserModule,
@@ -90,11 +92,13 @@ import { PassagemComponent } from './shared/passagem/passagem.component';
     MatDividerModule,
     MatCheckboxModule,
   ],
-  providers: [{
-    provide: HTTP_INTERCEPTORS,
-    useClass: AutenticacaoInterceptor,
-    multi: true
-  }],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AutenticacaoInterceptor,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
